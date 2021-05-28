@@ -1,0 +1,54 @@
+{
+	"name": "javascript-development-environment",
+	"version": "1.0.0",
+	"description": "Javascript development environement by liam morgan",
+	"scripts": {
+		"prestart": "babel-node buildScripts/startMessage.js",
+		"start":"npm-run-all --parallel open:src lint:watch test:watch",
+		"open:src": "babel-node buildScripts/srcServer.js",
+		"lint": "esw webpack.config.* src buildScripts --color",
+		"lint:watch": "npm run lint -- --watch",
+		"test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+		"test:watch": "npm run test -- --watch"
+
+	},
+	"author": "Liam Morgan",
+	"license": "MIT",
+	"dependencies": {
+		"whatwg-fetch": "3.6.2"
+	},
+	"devDependencies": {
+		"@babel/cli": "7.14.3",
+		"@babel/core": "7.14.3",
+		"@babel/node": "7.14.2",
+		"@babel/preset-env": "7.14.2",
+		"@babel/register": "7.13.16",
+		"babel-loader": "8.2.2",
+		"chai": "4.3.4",
+		"chalk": "4.1.1",
+		"cheerio": "1.0.0-rc.9",
+		"compression": "1.7.4",
+		"cross-env": "7.0.3",
+		"css-loader": "5.2.6",
+		"eslint": "7.27.0",
+		"eslint-plugin-import": "2.23.3",
+		"eslint-watch": "7.0.0",
+		"express": "4.17.1",
+		"faker": "5.5.3",
+		"html-webpack-plugin": "5.3.1",
+		"jsdom": "16.6.0",
+		"json-schema-faker": "0.5.0-rcv.34",
+		"json-server": "0.16.3",
+		"localtunnel": "^2.0.1",
+		"mini-css-extract-plugin": "1.6.0",
+		"mocha": "8.4.0",
+		"npm-run-all": "4.1.5",
+		"numeral": "2.0.6",
+		"open": "8.2.0",
+		"rimraf": "3.0.2",
+		"style-loader": "2.0.0",
+		"surge": "0.23.0",
+		"webpack": "5.37.1",
+		"webpack-dev-middleware": "4.3.0"
+	}
+}
